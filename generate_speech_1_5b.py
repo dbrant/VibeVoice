@@ -17,6 +17,28 @@ Usage examples:
 
     # Use voice cloning with a reference audio file
     python generate_speech_1_5b.py --text "Hello world" --voice-audio reference.wav
+
+Setup (CUDA / GPU acceleration):
+    The script auto-detects CUDA. If torch was installed without GPU support
+    (torch.cuda.is_available() returns False), reinstall it for your CUDA version:
+
+    1. Check your driver's CUDA version:
+           nvidia-smi          (look for "CUDA Version" in the top-right)
+
+    2. Install the matching torch wheel:
+           # CUDA 11.8
+           pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+           # CUDA 12.1
+           pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+           # CUDA 12.8 (nightly, for CUDA 12.8/13.x drivers)
+           pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
+
+       For the canonical command for your exact version, visit:
+           https://pytorch.org/get-started/locally/
+
+    3. Verify:
+           python -c "import torch; print(torch.cuda.is_available(), torch.version.cuda)"
+           # Should print: True  12.x
 """
 
 import argparse

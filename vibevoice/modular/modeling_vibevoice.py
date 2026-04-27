@@ -484,8 +484,8 @@ class VibeVoiceForConditionalGeneration(VibeVoicePreTrainedModel):
             attentions=outputs.attentions,
         )
 
-AutoModel.register(VibeVoiceConfig, VibeVoiceModel)
-AutoModelForCausalLM.register(VibeVoiceConfig, VibeVoiceForConditionalGeneration)
+AutoModel.register(VibeVoiceConfig, VibeVoiceModel, exist_ok=True)
+AutoModelForCausalLM.register(VibeVoiceConfig, VibeVoiceForConditionalGeneration, exist_ok=True)
 
 __all__ = [
     "VibeVoiceModel",

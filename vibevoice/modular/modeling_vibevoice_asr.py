@@ -512,8 +512,8 @@ class VibeVoiceASRForConditionalGeneration(VibeVoiceASRPreTrainedModel, Generati
         
         return model_inputs
 
-AutoModel.register(VibeVoiceASRConfig, VibeVoiceASRModel)
-AutoModelForCausalLM.register(VibeVoiceASRConfig, VibeVoiceASRForConditionalGeneration)
+AutoModel.register(VibeVoiceASRConfig, VibeVoiceASRModel, exist_ok=True)
+AutoModelForCausalLM.register(VibeVoiceASRConfig, VibeVoiceASRForConditionalGeneration, exist_ok=True)
 
 __all__ = [
     "VibeVoiceASRPreTrainedModel",
